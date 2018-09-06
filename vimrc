@@ -6,11 +6,15 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
+Plug 'liuchengxu/eleline.vim'
 
 " Initialize plugin system
 call plug#end()
 
 syntax enable
+" set nu
+
+set laststatus=2
 
 let Gtags_No_Auto_Jump = 1
 " let Gtags_Close_When_Single = 1
