@@ -11,6 +11,8 @@ Plug 'liuchengxu/eleline.vim'
 " Initialize plugin system
 call plug#end()
 
+set t_Co=256
+hi Search cterm=NONE ctermfg=LightYellow ctermbg=Red
 syntax enable
 " set nu
 
