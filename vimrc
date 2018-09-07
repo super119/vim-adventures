@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
 Plug 'liuchengxu/eleline.vim'
+Plug 'Valloric/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()
