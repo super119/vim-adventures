@@ -47,6 +47,7 @@ nmap <F3> :GtagsCursor<cr>
 " nmap <F6> :cnext<CR>
 " nmap <F7> :cprev<CR>
 nmap <F4> :cclose<cr>
+nmap <F5> :Gtags 
 
 :nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 :nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
