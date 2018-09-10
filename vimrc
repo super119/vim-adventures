@@ -17,7 +17,11 @@ hi Search cterm=NONE ctermfg=LightYellow ctermbg=Red
 syntax enable
 " set nu
 
+" Always showing status line
 set laststatus=2
+
+" Global switch to enable/disable YCM
+" let g:loaded_youcompleteme = 1
 
 let Gtags_No_Auto_Jump = 1
 " let Gtags_Close_When_Single = 1
