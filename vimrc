@@ -8,7 +8,7 @@ Plug 'super119/vim-gtags'
 Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
-Plug 'liuchengxu/eleline.vim'
+Plug 'super119/eleline.vim'
 Plug 'Valloric/YouCompleteMe'
 
 " Initialize plugin system
