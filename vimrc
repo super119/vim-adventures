@@ -4,6 +4,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
+Plug 'super119/vim-gtags'
+Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
 Plug 'liuchengxu/eleline.vim'
