@@ -32,11 +32,6 @@ let GtagsCscope_Ignore_Case = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Quiet = 1
 
-set cscopetag
-set cscopeprg='gtags-cscope'
-" no 'g-" here since we don't want to add 'definition finding' to quickfix
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-
 let g:Lf_ShortcutF = '<c-o>'
 noremap <c-d> :Leaderf bufTag<cr>
 
@@ -63,12 +58,16 @@ nmap <F5> :Gtags
 " 8 or i: Find files #including this file
 " 9 or a: Find places where this symbol is assigned a value
 
+set cscopetag
+set cscopeprg='gtags-cscope'
+" no 'g-" here since we don't want to add 'definition finding' to quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
 " Find references and back, add to quickfix so that we can preview easily
 :nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-:nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 :nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
 :nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 :nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-:nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
-:nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
 nmap <C-b> :colder<CR>:cc<CR>
