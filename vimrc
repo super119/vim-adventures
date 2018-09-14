@@ -37,10 +37,6 @@ set cscopeprg='gtags-cscope'
 " no 'g-" here since we don't want to add 'definition finding' to quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-" Find references and back, add to quickfix so that we can preview easily
-:nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-nmap <C-b> :colder<CR>:cc<CR>
-
 let g:Lf_ShortcutF = '<c-o>'
 noremap <c-d> :Leaderf bufTag<cr>
 
@@ -56,9 +52,23 @@ nmap <F3> :GtagsCursor<cr>
 nmap <F4> :cclose<cr>
 nmap <F5> :Gtags 
 
-:nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-:nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-:nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-:nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-:nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-:nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
+" CScope commands manual
+" 0 or s: Find this C symbol
+" 1 or g: Find this definition
+" 2 or d: Find functions called by this function
+" 3 or c: Find functions calling this function
+" 4 or t: Find this text string
+" 6 or e: Find this egrep pattern
+" 7 or f: Find this file
+" 8 or i: Find files #including this file
+" 9 or a: Find places where this symbol is assigned a value
+
+" Find references and back, add to quickfix so that we can preview easily
+:nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+:nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
+:nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
+nmap <C-b> :colder<CR>:cc<CR>
