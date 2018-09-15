@@ -8,13 +8,14 @@ fi
 
 echo "Install necessary packages..."
 sudo apt update
-sudo apt install build-essential python python3 python-dev python3-dev \
+sudo apt install -y build-essential python python3 python-dev python3-dev \
 		python-pip python3-pip wget curl libncurses5-dev git cmake
 if [ $? -ne 0 ]; then
 	echo "apt install failed, quit."
 	exit 1
 fi
 
+echo
 echo "Installing Rust... DO NOT CHANGE RUST INSTALL PATH"
 curl https://sh.rustup.rs -sSf | sh
 if [ $? -ne 0 ]; then
@@ -31,7 +32,7 @@ cd vim
 make -j4
 sudo make install
 cd -
-alias vi="vim"
+echo "" >> ~/.bashrc
 echo "alias vi='vim'" >> ~/.bashrc
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -40,4 +41,5 @@ cd ~
 git clone https://github.com/super119/vim-adventures.git
 cp vim-adventures/vimrc .vim
 
-echo "Done. Run vi and call 'PlugInstall'."
+vim +PlugInstall +qall
+echo "Done."
