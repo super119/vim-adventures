@@ -9,7 +9,7 @@ fi
 echo "Install necessary packages..."
 sudo apt update
 sudo apt install -y build-essential python python3 python-dev python3-dev \
-		python-pip python3-pip wget curl libncurses5-dev git cmake
+		python-pip python3-pip wget curl libncurses5-dev git cmake autoconf pkg-config
 if [ $? -ne 0 ]; then
 	echo "apt install failed, quit."
 	exit 1
@@ -25,6 +25,8 @@ fi
 source $HOME/.cargo/env
 rustup component add rust-src
 
+echo
+echo "Installing vim..."
 cd ~
 git clone https://github.com/vim/vim.git
 cd vim
@@ -35,6 +37,30 @@ cd -
 echo "" >> ~/.bashrc
 echo "alias vi='vim'" >> ~/.bashrc
 
+echo
+echo "Installing universal-ctags..."
+cd ~
+git clone https://github.com/universal-ctags/ctags.git
+cd ctags
+./autogen.sh
+./configure
+make -j4
+sudo make install
+cd -
+
+echo
+echo "Installing gtags..."
+cd ~
+wget -c "https://ftp.gnu.org/pub/gnu/global/global-6.6.2.tar.gz"
+tar zxvf global-6.6.2.tar.gz
+cd global-6.6.2
+./configure
+make -j4
+sudo make install
+cd -
+
+echo
+echo "Installing vim-plug then all plugins..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cd ~
