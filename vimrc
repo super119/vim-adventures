@@ -10,12 +10,14 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
 Plug 'super119/eleline.vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
 
 set t_Co=256
 hi Search cterm=NONE ctermfg=LightYellow ctermbg=Red
+filetype on
 syntax enable
 " set nu
 
@@ -71,3 +73,6 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 :nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 :nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 nmap <C-b> :colder<CR>:cc<CR>
+
+" For Rust
+autocmd FileType rust nnoremap <buffer> <c-]> :YcmCompleter GoToDefinition<cr>
