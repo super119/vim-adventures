@@ -32,7 +32,7 @@ let GtagsCscope_Ignore_Case = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Quiet = 1
 
-let g:Lf_ShortcutF = '<c-o>'
+let g:Lf_ShortcutF = '<c-l>'
 noremap <c-d> :Leaderf bufTag<cr>
 
 noremap <c-k> :PreviewScroll -1<cr>
