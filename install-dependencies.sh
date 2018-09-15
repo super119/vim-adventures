@@ -68,4 +68,6 @@ git clone https://github.com/super119/vim-adventures.git
 cp vim-adventures/vimrc .vim
 
 vim +PlugInstall +qall
+rm -rf ctags global-6.6.2 global-6.6.2.tar.gz install-dependencies.sh vim vim-adventures
+cd -
 echo "Done."
