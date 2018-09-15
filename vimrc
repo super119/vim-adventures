@@ -9,7 +9,7 @@ Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
 Plug 'super119/eleline.vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
 Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
