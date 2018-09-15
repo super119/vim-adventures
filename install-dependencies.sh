@@ -2,7 +2,7 @@
 echo "Create an user before running this script. For example:"
 echo "apt update; apt install sudo; useradd -m -s /bin/bash -G sudo <username>; passwd <username>"
 read -p "Go? (Y/n): " ANS
-if [ "$ANS" != "" ] || [ "$ANS" != "y" ] || [ "$ANS" != "Y" ] ; then
+if [ "$ANS" != "" ] && [ "$ANS" != "y" ] && [ "$ANS" != "Y" ] ; then
 	exit 0
 fi
 
