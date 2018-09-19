@@ -11,6 +11,8 @@ Plug 'skywind3000/vim-preview'
 Plug 'super119/eleline.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
 Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 
 " Initialize plugin system
 call plug#end()
@@ -76,4 +78,17 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <C-b> :colder<CR>:cc<CR>
 
 " For Rust
-autocmd FileType rust nnoremap <buffer> <c-]> :YcmCompleter GoToDefinition<cr>
+let g:autofmt_autosave = 1
+" -- Install RLS(from RLS github page) -- "
+" rustup update
+" rustup component add rls-preview rust-analysis rust-src
+" We don't need to install/use nightly rust toolchain for RLS
+" I.E, stable toolchain RLS works now
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+            \ 'name': 'rls',
+            \ 'cmd': {server_info->['rls']},
+            \ 'whitelist': ['rust'],
+            \ })
+endif
+autocmd FileType rust nnoremap <buffer> <c-]> :LspDefinition<cr>
