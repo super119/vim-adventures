@@ -91,4 +91,5 @@ if executable('rls')
             \ 'whitelist': ['rust'],
             \ })
 endif
-autocmd FileType rust nnoremap <buffer> <c-]> :LspDefinition<cr>
+autocmd FileType rust nnoremap <buffer> <c-i> :LspDefinition<cr>
+autocmd FileType rust nnoremap <buffer> <c-u> :YcmCompleter GoToDefinition<cr>
