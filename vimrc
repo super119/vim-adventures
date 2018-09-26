@@ -22,6 +22,7 @@ hi Search cterm=NONE ctermfg=LightYellow ctermbg=Red
 filetype on
 syntax enable
 set backspace=indent,eol,start
+set pastetoggle=<F12>
 " set nu
 
 " Always showing status line
