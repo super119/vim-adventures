@@ -23,7 +23,8 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 source $HOME/.cargo/env
-rustup component add rust-src
+rustup update
+rustup component add rls-preview rust-analysis rust-src
 
 echo
 echo "Installing vim..."
