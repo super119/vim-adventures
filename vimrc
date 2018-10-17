@@ -28,6 +28,9 @@ set pastetoggle=<F12>
 " Always showing status line
 set laststatus=2
 
+" Highlight .tera file using HTML syntax
+au BufReadPost *.tera set syntax=html
+
 " Global switch to enable/disable YCM
 " let g:loaded_youcompleteme = 1
 
