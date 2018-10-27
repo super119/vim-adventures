@@ -25,6 +25,9 @@ set backspace=indent,eol,start
 set pastetoggle=<F12>
 " set nu
 
+" Remove trailing whitespaces when save
+autocmd FileType c,cpp,rust autocmd BufWritePre <buffer> %s/\s\+$//e
+
 " Always showing status line
 set laststatus=2
 
