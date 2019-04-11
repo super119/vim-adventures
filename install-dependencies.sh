@@ -37,6 +37,8 @@ sudo make install
 cd -
 echo "" >> ~/.bashrc
 echo "alias vi='vim'" >> ~/.bashrc
+alias vi='vim'
+sudo rm /usr/bin/vi
 
 echo
 echo "Installing universal-ctags..."
