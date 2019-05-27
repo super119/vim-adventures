@@ -99,5 +99,6 @@ if executable('rls')
             \ })
 endif
 autocmd FileType rust nnoremap <buffer> <c-i> :LspDefinition<cr>
+autocmd FileType rust nnoremap <buffer> <c-r> :LspReferences<cr>
 autocmd FileType rust nnoremap <buffer> <c-u> :YcmCompleter GoToDefinition<cr>
 autocmd FileType rust nnoremap <buffer> <F10> :vsp<cr><c-w>w<cr>:term<cr><c-w>w<cr>:q!<cr><c-w>w<cr>
