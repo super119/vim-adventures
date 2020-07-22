@@ -9,10 +9,7 @@ Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/vim-preview'
 Plug 'super119/eleline.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
-Plug 'rust-lang/rust.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'thisivan/vim-taglist'
 
 " Initialize plugin system
 call plug#end()
@@ -44,6 +41,8 @@ let GtagsCscope_Ignore_Case = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Quiet = 1
 
+let Tlist_WinWidth = 45
+
 let g:Lf_ShortcutF = '<c-l>'
 noremap <c-d> :Leaderf bufTag<cr>
 
@@ -58,6 +57,7 @@ nmap <F3> :GtagsCursor<cr>
 " nmap <F7> :cprev<CR>
 nmap <F4> :cclose<cr>
 nmap <F5> :Gtags 
+nnoremap <silent> <F11> :TlistToggle<CR>
 
 " CScope commands manual
 " 0 or s: Find this C symbol
@@ -83,22 +83,3 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 :nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 :nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 nmap <C-b> :colder<CR>:cc<CR>
-
-" For Rust
-let g:autofmt_autosave = 1
-" -- Install RLS(from RLS github page) -- "
-" rustup update
-" rustup component add rls-preview rust-analysis rust-src
-" We don't need to install/use nightly rust toolchain for RLS
-" I.E, stable toolchain RLS works now
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-            \ 'name': 'rls',
-            \ 'cmd': {server_info->['rls']},
-            \ 'whitelist': ['rust'],
-            \ })
-endif
-autocmd FileType rust nnoremap <buffer> <c-i> :LspDefinition<cr>
-autocmd FileType rust nnoremap <buffer> <c-r> :LspReferences<cr>
-autocmd FileType rust nnoremap <buffer> <c-u> :YcmCompleter GoToDefinition<cr>
-autocmd FileType rust nnoremap <buffer> <F10> :vsp<cr><c-w>w<cr>:term<cr><c-w>w<cr>:q!<cr><c-w>w<cr>

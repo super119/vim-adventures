@@ -16,17 +16,6 @@ if [ $? -ne 0 ]; then
 fi
 
 echo
-echo "Installing Rust... DO NOT CHANGE RUST INSTALL PATH"
-curl https://sh.rustup.rs -sSf | sh
-if [ $? -ne 0 ]; then
-	echo "Install Rust failed, quit."
-	exit 1
-fi
-source $HOME/.cargo/env
-rustup update
-rustup component add rls-preview rust-analysis rust-src
-
-echo
 echo "Installing vim..."
 cd ~
 git clone https://github.com/vim/vim.git
