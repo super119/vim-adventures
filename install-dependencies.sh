@@ -1,10 +1,16 @@
 #!/bin/bash
+echo
+echo "This script is supposed to run individually."
+echo "I.E: please do NOT run it in 'vim-adventures' repository folder."
+echo
 echo "Create an user before running this script. For example:"
 echo "apt update; apt install sudo; useradd -m -s /bin/bash -G sudo <username>; passwd <username>"
 read -p "Go? (Y/n): " ANS
 if [ "$ANS" != "" ] && [ "$ANS" != "y" ] && [ "$ANS" != "Y" ] ; then
 	exit 0
 fi
+
+mkdir -p $HOME/.local
 
 echo "Install necessary packages..."
 sudo apt update
@@ -20,14 +26,13 @@ echo "Installing vim..."
 cd ~
 git clone https://github.com/vim/vim.git
 cd vim
-./configure --enable-pythoninterp=yes --enable-python3interp=yes
+./configure --prefix=$HOME/.local --enable-pythoninterp=yes --enable-python3interp=yes
 make -j4
 sudo make install
 cd -
 echo "" >> ~/.bashrc
 echo "alias vi='vim'" >> ~/.bashrc
 alias vi='vim'
-sudo rm /usr/bin/vi
 
 echo
 echo "Installing universal-ctags..."
@@ -35,7 +40,7 @@ cd ~
 git clone https://github.com/universal-ctags/ctags.git
 cd ctags
 ./autogen.sh
-./configure
+./configure --prefix=$HOME/.local
 make -j4
 sudo make install
 cd -
@@ -46,10 +51,12 @@ cd ~
 wget -c "https://ftp.gnu.org/pub/gnu/global/global-6.6.2.tar.gz"
 tar zxvf global-6.6.2.tar.gz
 cd global-6.6.2
-./configure
+./configure --prefix=$HOME/.local
 make -j4
 sudo make install
 cd -
+
+export PATH=$PATH:$HOME/.local/bin
 
 echo
 echo "Installing vim-plug then all plugins..."
@@ -60,6 +67,6 @@ git clone https://github.com/super119/vim-adventures.git
 cp vim-adventures/vimrc .vim
 
 vim +PlugInstall +qall
-rm -rf ctags global-6.6.2 global-6.6.2.tar.gz install-dependencies.sh vim vim-adventures
+rm -rf ctags global-6.6.2 global-6.6.2.tar.gz vim vim-adventures
 cd -
 echo "Done."
