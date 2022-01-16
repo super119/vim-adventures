@@ -35,22 +35,11 @@ echo "alias vi='vim'" >> ~/.bashrc
 alias vi='vim'
 
 echo
-echo "Installing universal-ctags..."
-cd ~
-git clone https://github.com/universal-ctags/ctags.git
-cd ctags
-./autogen.sh
-./configure --prefix=$HOME/.local
-make -j4
-sudo make install
-cd -
-
-echo
 echo "Installing gtags..."
 cd ~
-wget -c "https://ftp.gnu.org/pub/gnu/global/global-6.6.2.tar.gz"
-tar zxvf global-6.6.2.tar.gz
-cd global-6.6.2
+wget -c "https://ftp.gnu.org/pub/gnu/global/global-6.6.8.tar.gz"
+tar zxvf global-6.6.8.tar.gz
+cd global-6.6.8
 ./configure --prefix=$HOME/.local
 make -j4
 sudo make install
@@ -67,6 +56,6 @@ git clone https://github.com/super119/vim-adventures.git
 cp vim-adventures/vimrc .vim
 
 vim +PlugInstall +qall
-rm -rf ctags global-6.6.2 global-6.6.2.tar.gz vim vim-adventures
+rm -rf global-6.6.8 global-6.6.8.tar.gz vim vim-adventures
 cd -
 echo "Done."
