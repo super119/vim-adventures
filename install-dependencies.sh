@@ -29,6 +29,7 @@ echo "Installing vim..."
 cd ~
 git clone https://github.com/vim/vim.git
 cd vim
+git checkout -b v8.2.4103 v8.2.4103
 ./configure --prefix=$HOME/.local --enable-pythoninterp=yes --enable-python3interp=yes
 make -j$(nproc)
 make install

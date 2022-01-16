@@ -16,7 +16,7 @@ wget -c "https://ftp.gnu.org/pub/gnu/global/global-6.6.8.tar.gz"
 tar zxvf global-6.6.8.tar.gz
 cd global-6.6.8
 ./configure --prefix=$HOME/.local
-make uninstall
+sudo make uninstall
 cd -
 
 echo
@@ -26,7 +26,7 @@ git clone https://github.com/vim/vim.git
 git checkout -b v8.2.4103 v8.2.4103
 cd vim
 ./configure --prefix=$HOME/.local --enable-pythoninterp=yes --enable-python3interp=yes
-make uninstall
+sudo make uninstall
 cd -
 
 sed -i "/export PATH=\$HOME\/.local\/bin:\$PATH/d" ~/.bashrc
