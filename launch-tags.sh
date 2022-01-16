@@ -1,6 +1,15 @@
 #!/bin/bash
-find kernel-4.14 -type f -print > TAG-FILES
-find nvidia -type f -print >> TAG-FILES
 
-gtags -f TAG-FILES -i
-ctags -L TAG-FILES --fields=+niazS --extras=+q --c++-kinds=+px --c-kinds=+px --output-format=e-ctags
+rm -f GPATH GRTAGS GTAGS TAG-FILES
+
+# Exclude folders
+# find . -type f -not \( -path "./cboot/*" -o -path "./nvtboot/*" \)
+
+# Whitelist folders
+# find kernel-5.10 -type f -print > TAG-FILES
+# find xxx -type f -print >> TAG-FILES
+
+# Include all files
+find . -type f -print > TAG-FILES
+
+gtags -f TAG-FILES
