@@ -58,10 +58,10 @@ nmap <F5> :Gtags
 nmap <F6> :cn<CR>
 nmap <F7> :cp<CR>
 
-" This means when entering ':tag' in vim, we use cscope while not ctag
+" This means when entering ':tag' in vim, we use cscope while not ctags
 set cscopetag
 " This means we use 'gtags-cscope' as cscope program
-" So both of these 2 commands use global to replace ctag+cscope
+" So both of these 2 commands use global to replace ctags+cscope
 set cscopeprg='gtags-cscope'
 
 " CScope commands manual
