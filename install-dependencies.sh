@@ -27,7 +27,7 @@ cd ~
 git clone https://github.com/vim/vim.git
 cd vim
 ./configure --prefix=$HOME/.local --enable-pythoninterp=yes --enable-python3interp=yes
-make -j4
+make -j$(nproc)
 sudo make install
 cd -
 echo "" >> ~/.bashrc
@@ -41,7 +41,7 @@ wget -c "https://ftp.gnu.org/pub/gnu/global/global-6.6.8.tar.gz"
 tar zxvf global-6.6.8.tar.gz
 cd global-6.6.8
 ./configure --prefix=$HOME/.local
-make -j4
+make -j$(nproc)
 sudo make install
 cd -
 
