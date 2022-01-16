@@ -53,11 +53,10 @@ echo "Installing vim-plug then all plugins..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cd ~
-git clone https://github.com/super119/vim-adventures.git
-cp vim-adventures/vimrc .vim
+wget -c "https://raw.githubusercontent.com/super119/vim-adventures/master/vimrc" -O .vim/vimrc
 
 vim +PlugInstall +qall
-rm -rf global-6.6.8 global-6.6.8.tar.gz vim vim-adventures
+rm -rf global-6.6.8 global-6.6.8.tar.gz vim
 cd -
 
 echo "Done."
