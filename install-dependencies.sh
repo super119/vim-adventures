@@ -11,6 +11,9 @@ if [ "$ANS" != "" ] && [ "$ANS" != "y" ] && [ "$ANS" != "Y" ] ; then
 fi
 
 mkdir -p $HOME/.local
+export PATH=$PATH:$HOME/.local/bin
+echo "" >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
 
 echo "Install necessary packages..."
 sudo apt update
@@ -44,8 +47,6 @@ cd global-6.6.8
 make -j$(nproc)
 sudo make install
 cd -
-
-export PATH=$PATH:$HOME/.local/bin
 
 echo
 echo "Installing vim-plug then all plugins..."
