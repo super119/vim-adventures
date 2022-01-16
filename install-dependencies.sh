@@ -13,7 +13,7 @@ fi
 mkdir -p $HOME/.local
 export PATH=$PATH:$HOME/.local/bin
 echo "" >> ~/.bashrc
-echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 
 echo "Install necessary packages..."
 sudo apt update
@@ -31,7 +31,7 @@ git clone https://github.com/vim/vim.git
 cd vim
 ./configure --prefix=$HOME/.local --enable-pythoninterp=yes --enable-python3interp=yes
 make -j$(nproc)
-sudo make install
+make install
 cd -
 echo "" >> ~/.bashrc
 echo "alias vi='vim'" >> ~/.bashrc
@@ -45,7 +45,7 @@ tar zxvf global-6.6.8.tar.gz
 cd global-6.6.8
 ./configure --prefix=$HOME/.local
 make -j$(nproc)
-sudo make install
+make install
 cd -
 
 echo
@@ -59,4 +59,5 @@ cp vim-adventures/vimrc .vim
 vim +PlugInstall +qall
 rm -rf global-6.6.8 global-6.6.8.tar.gz vim vim-adventures
 cd -
+
 echo "Done."
