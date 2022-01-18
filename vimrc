@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'super119/vim-gtags'
 Plug 'super119/vim-gtags-cscope'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'skywind3000/vim-preview'
 Plug 'super119/eleline.vim'
 
@@ -42,6 +42,7 @@ let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Quiet = 1
 
 let g:Lf_ShortcutF = '<c-l>'
+let g:Lf_ShowDevIcons = 0
 " Press ctrl-d to open the symbol list of current buffer
 " This means we don't need vim-taglist anymore
 noremap <c-d> :Leaderf bufTag<cr>
