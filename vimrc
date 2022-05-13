@@ -46,6 +46,10 @@ let g:Lf_ShowDevIcons = 0
 " Press ctrl-d to open the symbol list of current buffer
 " This means we don't need vim-taglist anymore
 noremap <c-d> :Leaderf bufTag<cr>
+let g:Lf_WildIgnore = {
+	\ 'dir': ['out', '.svn','.git','.hg', '.mypy_cache'],
+	\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+	\}
 
 noremap <c-k> :PreviewScroll -1<cr>
 noremap <c-j> :PreviewScroll +1<cr>
