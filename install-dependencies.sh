@@ -10,7 +10,7 @@ fi
 echo "Install necessary packages..."
 sudo apt update
 sudo apt install -y build-essential python python3 python-dev python3-dev \
-		python-pip python3-pip wget curl libncurses5-dev git cmake autoconf pkg-config
+		python3-pip wget curl libncurses5-dev git cmake autoconf pkg-config
 if [ $? -ne 0 ]; then
 	echo "apt install failed, quit."
 	exit 1
