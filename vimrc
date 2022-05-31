@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'super119/vim-gtags'
 Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-Plug 'skywind3000/vim-preview'
 Plug 'super119/eleline.vim'
 
 " Initialize plugin system
@@ -51,13 +50,6 @@ let g:Lf_WildIgnore = {
 	\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
 	\}
 
-noremap <c-k> :PreviewScroll -1<cr>
-noremap <c-j> :PreviewScroll +1<cr>
-autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
-autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
-
-nmap <F2> :PreviewTag<cr>
-nmap <F3> :GtagsCursor<cr>
 nmap <F4> :cclose<cr>
 nmap <F5> :Gtags 
 nmap <F6> :cn<CR>
