@@ -12,6 +12,10 @@ Plug 'super119/eleline.vim'
 " Initialize plugin system
 call plug#end()
 
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
 " set terminal color
 set t_Co=256
 
