@@ -8,6 +8,7 @@ Plug 'super119/vim-gtags'
 Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'tag': 'v1.25' }
 Plug 'vim-airline/vim-airline'
+Plug 'dense-analysis/ale'
 
 " Initialize plugin system
 call plug#end()
@@ -41,7 +42,7 @@ nmap <F4> :cclose<cr>
 nmap <F5> :Gtags 
 nmap <F6> :cn<CR>
 nmap <F7> :cp<CR>
-noremap <c-d> :Gtags -f %<cr>
+nmap <c-d> :Gtags -f %<cr>
 
 " This means when entering ':tag' in vim, we use cscope while not ctags
 set cscopetag
@@ -83,6 +84,7 @@ let g:Lf_WildIgnore = {
 	\}
 
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -99,3 +101,8 @@ nmap <C-\>7 <Plug>AirlineSelectTab7
 nmap <C-\>8 <Plug>AirlineSelectTab8
 nmap <C-\>9 <Plug>AirlineSelectTab9
 nmap <C-\>0 <Plug>AirlineSelectTab0
+
+let g:ale_linters = { 'sh': ['language_server'], }
+nmap <C-u> :ALEGoToDefinition<CR>
+nmap <C-y> :ALEFindReferences<CR>
+
