@@ -102,7 +102,9 @@ nmap <C-\>8 <Plug>AirlineSelectTab8
 nmap <C-\>9 <Plug>AirlineSelectTab9
 nmap <C-\>0 <Plug>AirlineSelectTab0
 
-let g:ale_linters = { 'sh': ['language_server'], }
+let g:ale_linters = { 'sh': ['language_server'], 'c': [], }
 nmap <C-u> :ALEGoToDefinition<CR>
 nmap <C-y> :ALEFindReferences<CR>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
