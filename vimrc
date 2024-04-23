@@ -6,58 +6,42 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'super119/vim-gtags'
 Plug 'super119/vim-gtags-cscope'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-Plug 'super119/eleline.vim'
+Plug 'Yggdroot/LeaderF', { 'tag': 'v1.25' }
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
 
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
-
-" set terminal color
-set t_Co=256
-
 hi Search cterm=NONE ctermfg=LightYellow ctermbg=Red
 filetype on
 syntax enable
+
+set tabstop=8
+set shiftwidth=8
+set noexpandtab
 set backspace=indent,eol,start
 set pastetoggle=<F12>
-" set nu
-
-" Remove trailing whitespaces when save
-autocmd FileType c,cpp,rust autocmd BufWritePre <buffer> %s/\s\+$//e
-
+set nu
+" set terminal color
+set t_Co=256
 " Always showing status line
 set laststatus=2
 
-" Highlight .tera file using HTML syntax
-au BufReadPost *.tera set syntax=html
+" Remove trailing whitespaces when save
+autocmd FileType c,cpp,rust autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " Gtags jumps to the first match automatically. This is not good when
 " there are multiple matches for a symbol. This command disables the feature.
 let Gtags_No_Auto_Jump = 1
 " let Gtags_Close_When_Single = 1
-
 let GtagsCscope_Ignore_Case = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Quiet = 1
-
-let g:Lf_ShortcutF = '<c-l>'
-let g:Lf_ShowDevIcons = 0
-" Press ctrl-d to open the symbol list of current buffer
-" This means we don't need vim-taglist anymore
-noremap <c-d> :Leaderf bufTag<cr>
-let g:Lf_WildIgnore = {
-	\ 'dir': ['out', '.svn','.git','.hg', '.mypy_cache'],
-	\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-	\}
-
 nmap <F4> :cclose<cr>
 nmap <F5> :Gtags 
 nmap <F6> :cn<CR>
 nmap <F7> :cp<CR>
+noremap <c-d> :Gtags -f %<cr>
 
 " This means when entering ':tag' in vim, we use cscope while not ctags
 set cscopetag
@@ -79,10 +63,39 @@ set cscopeprg='gtags-cscope'
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 " Find references and back, add to quickfix so that we can preview easily
-:nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-:nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-:nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-:nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
-:nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
-:nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:cw 10<cr>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>:cw 10<cr>
 nmap <C-b> :colder<CR>:cc<CR>
+
+let g:Lf_ShortcutF = '<C-l>'
+let g:Lf_ShortcutB = '<C-p>'
+let g:Lf_ShowDevIcons = 0
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PopupPreviewPosition = 'bottom'
+let g:Lf_PreviewResult = { 'File': 0, 'Buffer': 0 }
+let g:Lf_WildIgnore = {
+	\ 'dir': ['out', '.svn','.git','.hg', '.mypy_cache'],
+	\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+	\}
+
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <C-w> :bd<CR>
+nmap <C-\>- <Plug>AirlineSelectPrevTab
+nmap <C-\>= <Plug>AirlineSelectNextTab
+nmap <C-\>1 <Plug>AirlineSelectTab1
+nmap <C-\>2 <Plug>AirlineSelectTab2
+nmap <C-\>3 <Plug>AirlineSelectTab3
+nmap <C-\>4 <Plug>AirlineSelectTab4
+nmap <C-\>5 <Plug>AirlineSelectTab5
+nmap <C-\>6 <Plug>AirlineSelectTab6
+nmap <C-\>7 <Plug>AirlineSelectTab7
+nmap <C-\>8 <Plug>AirlineSelectTab8
+nmap <C-\>9 <Plug>AirlineSelectTab9
+nmap <C-\>0 <Plug>AirlineSelectTab0
