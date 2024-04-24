@@ -9,11 +9,13 @@ Plug 'super119/vim-gtags-cscope'
 Plug 'Yggdroot/LeaderF', { 'tag': 'v1.25' }
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
+Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
 call plug#end()
 
-hi Search cterm=NONE ctermfg=LightYellow ctermbg=Red
+colorscheme gruvbox
+set background=dark
 filetype on
 syntax enable
 
@@ -27,6 +29,8 @@ set nu
 set t_Co=256
 " Always showing status line
 set laststatus=2
+" Show a verticle line at column 110
+set colorcolumn=110
 
 " Remove trailing whitespaces when save
 autocmd FileType c,cpp,rust autocmd BufWritePre <buffer> %s/\s\+$//e
