@@ -10,12 +10,15 @@ Plug 'Yggdroot/LeaderF', { 'tag': 'v1.25' }
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
 
-colorscheme gruvbox
-set background=dark
+" colorscheme gruvbox
+" set background=dark
+colorscheme onedark
 filetype on
 syntax enable
 
@@ -89,6 +92,7 @@ let g:Lf_WildIgnore = {
 
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -106,7 +110,7 @@ nmap <C-\>8 <Plug>AirlineSelectTab8
 nmap <C-\>9 <Plug>AirlineSelectTab9
 nmap <C-\>0 <Plug>AirlineSelectTab0
 
-let g:ale_linters = { 'sh': ['language_server'], 'c': [], }
+let g:ale_linters = { 'sh': ['language_server'], 'c': [], 'cpp': [], }
 nmap <C-u> :ALEGoToDefinition<CR>
 nmap <C-y> :ALEFindReferences<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
