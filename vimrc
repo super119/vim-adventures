@@ -34,6 +34,8 @@ set t_Co=256
 set laststatus=2
 " Show a verticle line at column 110
 set colorcolumn=110
+" Move the cursor while searching
+set incsearch
 
 " Remove trailing whitespaces when save
 autocmd FileType c,cpp,rust autocmd BufWritePre <buffer> %s/\s\+$//e
