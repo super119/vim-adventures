@@ -22,6 +22,7 @@ colorscheme onedark
 filetype on
 syntax enable
 
+set encoding=utf-8
 set tabstop=8
 set shiftwidth=8
 set noexpandtab
@@ -83,7 +84,7 @@ nmap <C-b> :colder<CR>:cc<CR>
 
 let g:Lf_ShortcutF = '<C-l>'
 let g:Lf_ShortcutB = '<C-p>'
-let g:Lf_ShowDevIcons = 0
+let g:Lf_ShowDevIcons = 1
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PopupPreviewPosition = 'bottom'
 let g:Lf_PreviewResult = { 'File': 0, 'Buffer': 0 }
